@@ -1,0 +1,12 @@
+.footer {
+  display: block;
+  height: 5vh;
+  width: 100%;
+  background-color: black;
+  color: white;
+
+  &__text {
+    text-align: center;
+    line-height: 5vh;
+  }
+}
