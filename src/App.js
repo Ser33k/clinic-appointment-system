@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Footer from "./components/Footer/Footer";
-import DoctorRegisterForm from "./components/Register/DoctorRegisterForm/DoctorRegisterForm";
 import Register from "./components/Register/Register";
 
 function App() {

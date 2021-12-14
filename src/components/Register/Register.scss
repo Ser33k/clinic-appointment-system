@@ -1,0 +1,49 @@
+.section__register {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  //   position: relative;
+  //   z-index: 3;
+  //   overflow: hidden;
+
+  .option__btn {
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: #06613f;
+    transition: 0.35s;
+    border: none;
+    font-size: 32px;
+    color: #dff8ee;
+    cursor: pointer;
+    font-family: inherit;
+    margin: 10px;
+
+    &:hover {
+      background-color: #dff8ee;
+      color: #06613f;
+    }
+  }
+
+  .register__title {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .back__btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+    color: #4fb690;
+    position: relative;
+    left: 0;
+
+    align-self: flex-start;
+  }
+}
