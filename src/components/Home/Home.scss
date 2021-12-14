@@ -1,0 +1,183 @@
+// $step-bgc1: #395f3e;
+// $step-bgc1: #95d5b2;
+$step-bgc1: #74c69d;
+$step-bgc2: #52b788;
+$step-bgc3: #40916c;
+$step-bgc4: #2d6a4f;
+
+$text-color: #2d6a4f;
+
+.section {
+  height: 50vh;
+  width: 100%;
+  box-shadow: 0 0 2px 1px $step-bgc1;
+  margin: 30px 0;
+  text-align: center;
+  background-color: #e5fbe8;
+
+  // background-color: $text-color;
+}
+
+.section--instruction {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  box-shadow: 0 0 7px 4px $step-bgc1;
+}
+
+.title {
+  color: $text-color;
+  margin-top: 30px;
+  font-size: 40px;
+}
+
+.instruction__steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 60px;
+}
+
+.step p {
+  text-align: center;
+  margin-left: 50px;
+}
+
+.step__description {
+  color: $text-color;
+  font-weight: bold;
+}
+
+.test {
+  width: 170px;
+  height: 100px;
+
+  line-height: 100px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  color: #e5fbe8;
+  margin: 25px;
+}
+
+.step:nth-child(1) .test {
+  background-color: $step-bgc1;
+}
+.step:nth-child(1) .test::after {
+  border-left: 50px solid $step-bgc1;
+}
+
+.step:nth-child(2) .test {
+  background-color: $step-bgc2;
+}
+.step:nth-child(2) .test::after {
+  border-left: 50px solid $step-bgc2;
+}
+
+.step:nth-child(3) .test {
+  background-color: $step-bgc3;
+}
+.step:nth-child(3) .test::after {
+  border-left: 50px solid $step-bgc3;
+}
+
+.step:nth-child(4) .test {
+  background-color: $step-bgc4;
+}
+.step:nth-child(4) .test::after {
+  border-left: 50px solid $step-bgc4;
+}
+
+.test::before {
+  display: block;
+  content: "";
+
+  width: 0;
+  height: 0;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  border-bottom: 50px solid transparent;
+  border-top: 50px solid transparent;
+  border-left: 50px solid #e5fbe8;
+  border-right: 50px solid transparent;
+}
+
+.test::after {
+  display: block;
+  content: "";
+
+  width: 0;
+  height: 0;
+
+  position: absolute;
+  top: 0;
+  left: 100%;
+
+  border-bottom: 50px solid transparent;
+  border-top: 50px solid transparent;
+}
+
+.test p {
+  margin-left: 50px;
+}
+
+.section__home {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 65vh;
+
+  .home__img {
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    width: 40%;
+  }
+
+  .home__img--doctor {
+    background-image: url("../../assets/doctor.svg");
+    background-size: 100%;
+    min-height: 60vh;
+  }
+
+  .home__img--bubble {
+    color: white;
+    font-size: 30px;
+
+    padding: 40px;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .talk-bubble {
+    // margin: 40px;
+    display: inline-block;
+    position: relative;
+    // width: 100%;
+    // height: 70%;
+    min-height: 35vh;
+    background-color: $text-color;
+    border-radius: 30px;
+  }
+
+  .tri-right.left-in:after {
+    content: " ";
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -20px;
+    right: auto;
+    top: 100px;
+    bottom: auto;
+    border: 12px solid;
+    border-color: $text-color $text-color transparent transparent;
+  }
+}

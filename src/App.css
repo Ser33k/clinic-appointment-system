@@ -3,3 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.main {
+  width: 1200px;
+  margin: 0 auto;
+  min-height: calc(100vh - 70px - 5vh);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
