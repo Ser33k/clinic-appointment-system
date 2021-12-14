@@ -1,18 +1,17 @@
 import React from "react";
 
 import "./Header.scss";
-import logo from "../../assets/date1.svg";
-import { Link, BrowserRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div className="header__container">
       <header className="header">
         <div className="header__logo">
-          <a href="/" className="logo__link">
+          <Link to="/" className="logo__link">
             {/* <img src={logo} alt="logo" className="logo__img" /> */}
             <svg
-              height="65px"
+              height="62px"
               viewBox="0 -16 462 462"
               width="70px"
               xmlns="http://www.w3.org/2000/svg"
@@ -25,39 +24,37 @@ const Header = () => {
               <path d="m91.886719 300.980469 19.691406.027343-.011719 19.710938c-.007812 4.425781 3.570313 8.023438 8 8.042969l22.605469.089843h.007813c2.128906-.035156 4.160156-.910156 5.652343-2.4375 1.503907-1.535156 2.347657-3.597656 2.347657-5.75l.011718-19.738281 19.703125-.074219c2.109375.019532 4.140625-.804687 5.640625-2.285156 1.503906-1.484375 2.351563-3.503906 2.359375-5.617187l.015625-22.515625c0-4.417969-3.578125-7.996094-7.996094-8l-19.699218-.011719.015625-19.683594c.003906-2.117187-.839844-4.148437-2.339844-5.640625-1.5-1.492187-3.539063-2.324218-5.65625-2.304687l-22.605469.058593h-.003906c-4.425781.019532-8 3.609376-8 8.035157l-.015625 19.734375-19.699219.230468h-.007812c-2.089844-.089843-4.125.667969-5.652344 2.097657-1.492188 1.40625-2.34375 3.363281-2.347656 5.414062l-.015625 22.613281c-.003907 4.417969 3.578125 8.003907 8 8.003907zm8.015625-22.378907 19.699218.25h.007813c4.460937-.109374 8.015625-3.765624 8-8.230468l.011719-19.925782h6.609375l-.015625 19.6875c0 2.121094.839844 4.15625 2.339844 5.660157 1.5 1.5 3.535156 2.339843 5.65625 2.339843h19.699218l-.011718 6.566407-19.699219-.097657h-.003907c-2.128906.027344-4.160156.898438-5.652343 2.417969-1.503907 1.53125-2.347657 3.589844-2.347657 5.734375l-.015624 19.699219h-6.609376l.015626-19.664063c0-2.121093-.84375-4.152343-2.34375-5.648437s-3.53125-2.332031-5.648438-2.328125l-19.703125.042969zm0 0" />
             </svg>
             <h2 className="logo__text">Lekarz-wizyta.pl</h2>
-          </a>
+          </Link>
         </div>
-        <BrowserRouter>
-          <nav className="navigation">
-            <ul className="navigation__menu">
-              <li className="menu__item">
-                <Link className="menu__link" to="/search">
-                  Wyszukaj specjalistę
-                </Link>
-              </li>
-              <li className="menu__item">
-                <Link className="menu__link" to="/about">
-                  O nas
-                </Link>
-              </li>
-              <li className="menu__item">
-                <Link className="menu__link" to="/contact">
-                  Kontakt
-                </Link>
-              </li>
-              <li className="menu__item ">
-                <Link className="menu__link--register" to="/register">
-                  Zarejestruj się
-                </Link>
-              </li>
-              <li className="menu__item ">
-                <Link className="menu__link--login" to="/login">
-                  Zaloguj się
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </BrowserRouter>
+        <nav className="navigation">
+          <ul className="navigation__menu">
+            <li className="menu__item">
+              <Link className="menu__link" to="/search">
+                Wyszukaj specjalistę
+              </Link>
+            </li>
+            <li className="menu__item">
+              <Link className="menu__link" to="/about">
+                O nas
+              </Link>
+            </li>
+            <li className="menu__item">
+              <Link className="menu__link" to="/contact">
+                Kontakt
+              </Link>
+            </li>
+            <li className="menu__item ">
+              <Link className="menu__link--register" to="/register">
+                Zarejestruj się
+              </Link>
+            </li>
+            <li className="menu__item ">
+              <Link className="menu__link--login" to="/login">
+                Zaloguj się
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </header>
     </div>
   );
