@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./Login.scss";
+import UserService from "../../service/UserService";
+import { useHistory } from "react-router-dom";
+import { StoreContext } from "../../store/storeProvider";
 
 function Login() {
-  const [email, setEmail] = useState("asd");
-  const [password, setPassword] = useState("asd");
+  const { setUser } = useContext(StoreContext);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
 
   const onLoginChange = (e) => {
     setEmail(e.currentTarget.value);
@@ -13,11 +19,24 @@ function Login() {
     setPassword(e.currentTarget.value);
   };
 
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+
+    UserService.loginUser({ email, password }).then((r) => {
+      if (r.status === 200) {
+        setUser(r.data);
+        history.push("/reservation");
+      } else {
+        alert("Zły login lub hasło!");
+      }
+    });
+  };
+
   return (
     <section className="section section__login">
       {/* <h2>Login</h2> */}
       <div className="login__icon"></div>
-      <form onSubmit className="form login">
+      <form onSubmit={handleLoginSubmit} className="form login">
         <label htmlFor="email">
           <input
             type="email"

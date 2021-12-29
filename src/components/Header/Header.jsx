@@ -1,9 +1,46 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import "./Header.scss";
 import { Link } from "react-router-dom";
+import { StoreContext } from "../../store/storeProvider";
 
 const Header = () => {
+  const { user } = useContext(StoreContext);
+  const { setUser } = useContext(StoreContext);
+  console.log(user);
+
+  const handleLogoutClick = () => {
+    setUser(null);
+  };
+
+  const buttons = user ? (
+    <>
+      {/* <li className="menu__item ">
+              <button>
+                Zarejestruj się
+              </button>
+            </li> */}
+      <li className="menu__item ">
+        <button className="menu__link--login" onClick={handleLogoutClick}>
+          Wyloguj się
+        </button>
+      </li>
+    </>
+  ) : (
+    <>
+      <li className="menu__item ">
+        <Link className="menu__link--register" to="/register">
+          Zarejestruj się
+        </Link>
+      </li>
+      <li className="menu__item ">
+        <Link className="menu__link--login" to="/login">
+          Zaloguj się
+        </Link>
+      </li>
+    </>
+  );
+
   return (
     <div className="header__container">
       <header className="header">
@@ -43,16 +80,7 @@ const Header = () => {
                 Kontakt
               </Link>
             </li>
-            <li className="menu__item ">
-              <Link className="menu__link--register" to="/register">
-                Zarejestruj się
-              </Link>
-            </li>
-            <li className="menu__item ">
-              <Link className="menu__link--login" to="/login">
-                Zaloguj się
-              </Link>
-            </li>
+            {buttons}
           </ul>
         </nav>
       </header>

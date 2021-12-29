@@ -1,0 +1,41 @@
+.reserve__form {
+  .reserve__row {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+
+    & {
+      flex-grow: 1;
+
+      .reserve__select {
+        margin: 10px;
+        width: 30%;
+      }
+    }
+
+    textarea {
+      border-radius: 4px;
+      background-color: hsl(0, 0%, 100%);
+      border-color: hsl(0, 0%, 80%);
+      font-family: "Montserrat";
+      padding: 5px;
+    }
+  }
+  .reserve__btn {
+    padding: 20px;
+
+    background-color: #2d6a4f;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.5);
+    color: #f2f8f3;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    font-family: inherit;
+    margin-top: 30px;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: #1d7e5b;
+    }
+  }
+}

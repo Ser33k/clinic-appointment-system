@@ -1,0 +1,22 @@
+.nav__list {
+  list-style: none;
+
+  .nav__item {
+    text-align: center;
+    margin: 20px 0;
+
+    .nav__link {
+      display: block;
+      text-decoration: none;
+      color: white;
+      padding: 15px 0;
+    }
+
+    .active {
+      background-color: #14553d;
+    }
+    &:hover {
+      background-color: #14553d;
+    }
+  }
+}

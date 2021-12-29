@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./DoctorRegisterForm.scss";
+import UserService from "../../../service/UserService";
 
 function DoctorRegisterForm(props) {
   const [firstName, setFirstName] = useState("");
@@ -41,6 +42,21 @@ function DoctorRegisterForm(props) {
     setAgree(e.currentTarget.checked);
   };
 
+  const handleRegisterSubmit = (e) => {
+    e.preventDefault();
+    const patient = {
+      idNumber,
+      email,
+      password,
+      firstName,
+      lastName,
+      phoneNumber,
+      address,
+    };
+
+    UserService.createUser(patient).then((r) => console.log(r));
+  };
+
   return (
     <>
       <h1>
@@ -48,7 +64,7 @@ function DoctorRegisterForm(props) {
           ? "Zarejestruj się jako lekarz"
           : "Zarejestruj się jako pacjent"}
       </h1>
-      <form className="register form">
+      <form className="register form" onSubmit={handleRegisterSubmit}>
         <div className="register__row">
           <label htmlFor="firstName">
             <input
