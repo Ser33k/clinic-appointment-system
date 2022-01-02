@@ -54,7 +54,13 @@ function DoctorRegisterForm(props) {
       address,
     };
 
-    UserService.createUser(patient).then((r) => console.log(r));
+    UserService.createUser(patient).then((r) => {
+      if (r.status === 200) {
+        alert("Użytkownik zarejestrowany! Można się zalogować.");
+      } else {
+        alert("Coś poszło nie tak. Spróbuj ponownie.");
+      }
+    });
   };
 
   return (

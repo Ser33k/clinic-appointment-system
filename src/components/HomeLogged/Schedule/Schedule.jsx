@@ -8,7 +8,6 @@ function Schedule(props) {
 
   useEffect(() => {
     DoctorService.getScheduleByUser(props.user.userId).then((r) => {
-      //   console.log(r.data)
       const content = r.data?.map((appointment) => {
         return (
           <tr key={appointment.description}>
@@ -27,7 +26,7 @@ function Schedule(props) {
       setTableContent(content);
     }, []);
   });
-  //   console.log(props.user);
+
   return (
     <div>
       <h2 className="table__title">Grafik pracy</h2>

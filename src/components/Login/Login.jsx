@@ -25,7 +25,7 @@ function Login() {
     UserService.loginUser({ email, password }).then((r) => {
       if (r.status === 200) {
         setUser(r.data);
-        history.push("/reservation");
+        history.push("/");
       } else {
         alert("Zły login lub hasło!");
       }

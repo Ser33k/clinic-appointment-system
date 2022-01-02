@@ -63,13 +63,15 @@ const Header = () => {
             <h2 className="logo__text">Lekarz-wizyta.pl</h2>
           </Link>
         </div>
+        <h3 style={{ lineHeight: "68px", color: "white" }}>
+          {user !== null
+            ? user?.role === "PATIENT"
+              ? "Zalogowany jako pacjent"
+              : "Zalogowany jako lekarz"
+            : null}
+        </h3>
         <nav className="navigation">
           <ul className="navigation__menu">
-            <li className="menu__item">
-              <Link className="menu__link" to="/search">
-                Wyszukaj specjalistę
-              </Link>
-            </li>
             <li className="menu__item">
               <Link className="menu__link" to="/about">
                 O nas
