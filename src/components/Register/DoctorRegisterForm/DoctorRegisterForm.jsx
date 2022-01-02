@@ -44,23 +44,56 @@ function DoctorRegisterForm(props) {
 
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
-    const patient = {
-      idNumber,
-      email,
-      password,
-      firstName,
-      lastName,
-      phoneNumber,
-      address,
-    };
+    // const patient = {
+    //   idNumber,
+    //   email,
+    //   password,
+    //   firstName,
+    //   lastName,
+    //   phoneNumber,
+    //   address,
+    // };
 
-    UserService.createUser(patient).then((r) => {
-      if (r.status === 200) {
-        alert("Użytkownik zarejestrowany! Można się zalogować.");
-      } else {
-        alert("Coś poszło nie tak. Spróbuj ponownie.");
-      }
-    });
+    const registrationDto = props.doctorOption
+      ? {
+          idNumber,
+          email,
+          password,
+          firstName,
+          lastName,
+          phoneNumber,
+          address,
+          doctorDto: {
+            licenseNumber,
+          },
+          patientDto: null,
+        }
+      : {
+          idNumber,
+          email,
+          password,
+          firstName,
+          lastName,
+          phoneNumber,
+          address,
+          doctorDto: null,
+          patientDto: {
+            idNumber,
+            weight: 70,
+            height: 190,
+          },
+        };
+
+    debugger;
+    // UserService.createUser(patient).then((r) => {
+    //   if (r.status === 200) {
+    //     alert("Użytkownik zarejestrowany! Można się zalogować.");
+    //   } else {
+    //     alert("Coś poszło nie tak. Spróbuj ponownie.");
+    //   }
+    // });
+
+    UserService.register(registrationDto).then((r) => console.log(r));
   };
 
   return (
