@@ -7,7 +7,6 @@ import { StoreContext } from "../../store/storeProvider";
 const Header = () => {
   const { user } = useContext(StoreContext);
   const { setUser } = useContext(StoreContext);
-  console.log(user);
 
   const handleLogoutClick = () => {
     setUser(null);

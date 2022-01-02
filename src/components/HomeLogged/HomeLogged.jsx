@@ -11,7 +11,6 @@ import Schedule from "./Schedule/Schedule";
 
 function HomeLogged() {
   const { user } = useContext(StoreContext);
-  console.log(user);
   const content =
     user.role === "PATIENT" ? (
       <>

@@ -5,7 +5,6 @@ import { NavLink } from "react-router-dom";
 
 function AsideNav() {
   const { user } = useContext(StoreContext);
-  console.log(user);
 
   const items =
     user?.role === "PATIENT" ? (

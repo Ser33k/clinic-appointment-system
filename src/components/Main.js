@@ -11,7 +11,6 @@ import AsideNav from "./HomeLogged/AsideNav/AsideNav";
 
 function Main() {
   const { user } = useContext(StoreContext);
-  console.log(user);
   return (
     <Router>
       <Header />
