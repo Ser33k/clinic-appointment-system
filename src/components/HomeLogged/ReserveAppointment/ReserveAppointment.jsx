@@ -53,20 +53,35 @@ function ReserveAppointment() {
   const handleReserveSubmit = (e) => {
     e.preventDefault();
 
-    const appointmentDto = {
-      appointmentDate: date,
-      description,
-      user,
-    };
-    console.log(appointmentDto);
+    // const appointmentDto = {
+    //   appointmentDate: date,
+    //   description,
+    //   user,
+    // };
 
-    AppointmentService.createAppointment(appointmentDto).then((r) => {
-      if (r.status === 200) {
-        alert("Udało się zarezerwować wizytę!");
-      } else {
-        alert("Coś poszło nie tak, spróbuj ponownie!");
-      }
+    const reserveAppointmentDto = {
+      patientDto: {
+        idNumber: user.idNumber,
+      },
+      doctorDto: {
+        licenseNumber: doctor.licenseNumber,
+      },
+      date: date.date,
+      duration: 20,
+      description,
+    };
+
+    AppointmentService.reserveAppointment(reserveAppointmentDto).then((r) => {
+      console.log(r);
     });
+
+    // AppointmentService.createAppointment(appointmentDto).then((r) => {
+    //   if (r.status === 200) {
+    //     alert("Udało się zarezerwować wizytę!");
+    //   } else {
+    //     alert("Coś poszło nie tak, spróbuj ponownie!");
+    //   }
+    // });
   };
 
   useEffect(() => {
@@ -113,7 +128,6 @@ function ReserveAppointment() {
             onChange={handleDescriptionChange}
           ></textarea>
         </div>
-
         <div className="reserve__row">
           <button type="submit" className="reserve__btn">
             Zarezerwuj
