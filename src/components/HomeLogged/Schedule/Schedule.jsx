@@ -18,7 +18,7 @@ function Schedule(props) {
           return (
             <tr key={appointment.date}>
               <td className="tg-0lax">
-                {new Date(appointment.date).toLocaleString()}
+                {new Date(appointment.date).toLocaleString().slice(0, -3)}
               </td>
               <td className="tg-0lax">
                 {appointment.patientFirstName} {appointment.patientLastName}

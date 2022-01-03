@@ -33,7 +33,7 @@ function ReserveAppointment() {
         console.log(filtered);
         const a = filtered.map((date) => ({
           value: date,
-          label: new Date(date.date).toLocaleString(),
+          label: new Date(date.date).toLocaleString().slice(0, -3),
         }));
 
         setDateLabels(a);
@@ -73,6 +73,14 @@ function ReserveAppointment() {
 
     AppointmentService.reserveAppointment(reserveAppointmentDto).then((r) => {
       console.log(r);
+
+      for (const [key, value] of Object.entries(r.data)) {
+        if (value === null) {
+          return alert("Nie udało się zarezerwować wizyty");
+        } else {
+          return alert("Wizyta zarezerwowana!");
+        }
+      }
     });
 
     // AppointmentService.createAppointment(appointmentDto).then((r) => {
@@ -102,7 +110,11 @@ function ReserveAppointment() {
   return (
     <div>
       <h2 style={{ textAlign: "center" }}>Rezerwacja wizyty</h2>
-      <form className="reserve__form" onSubmit={handleReserveSubmit}>
+      <form
+        className="reserve__form"
+        id="reserve-form"
+        onSubmit={handleReserveSubmit}
+      >
         <div className="reserve__row">
           <AsyncSelect
             onChange={handleDoctorChange}
