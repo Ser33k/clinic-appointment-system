@@ -11,8 +11,9 @@ function Schedule(props) {
   useEffect(() => {
     DoctorService.getDoctorByUser(user.idNumber).then((r) => {
       console.log(r.data);
+      const licenseNumber = r.data;
 
-      DoctorService.getScheduleByLicenseNumber(r.data).then((r) => {
+      DoctorService.getScheduleByLicenseNumber(licenseNumber).then((r) => {
         console.log(r.data);
         const content = r.data?.map((appointment) => {
           return (
@@ -55,7 +56,7 @@ function Schedule(props) {
   return (
     <div>
       <h2 className="table__title">Grafik pracy</h2>
-      <table className="tg">
+      <table className="tg" id="schedule_table">
         <thead>
           <tr>
             <th className="tg-0lax">Data</th>

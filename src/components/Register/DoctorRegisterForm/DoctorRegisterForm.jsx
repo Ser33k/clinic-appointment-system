@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./DoctorRegisterForm.scss";
 import UserService from "../../../service/UserService";
+import { useAlert } from "react-alert";
 
 function DoctorRegisterForm(props) {
   const [firstName, setFirstName] = useState("");
@@ -42,6 +43,8 @@ function DoctorRegisterForm(props) {
     setAgree(e.currentTarget.checked);
   };
 
+  const alert = useAlert();
+
   const handleRegisterSubmit = (e) => {
     e.preventDefault();
     const registrationDto = props.doctorOption
@@ -73,15 +76,17 @@ function DoctorRegisterForm(props) {
             height: 190,
           },
         };
+    debugger;
 
     UserService.register(registrationDto).then((r) => {
       for (const [key, value] of Object.entries(r.data)) {
         if (value === null) {
           return alert("Nie udało się zarejestrować!");
         } else {
-          return alert("Użytkownik zarejestrowany!");
+          return alert.show("Użytkownik zarejestrowany!");
         }
       }
+      return window.alert("Nie udało się zarejestrować!");
     });
   };
 
@@ -92,7 +97,11 @@ function DoctorRegisterForm(props) {
           ? "Zarejestruj się jako lekarz"
           : "Zarejestruj się jako pacjent"}
       </h1>
-      <form className="register form" onSubmit={handleRegisterSubmit}>
+      <form
+        className="register form"
+        id="register__form"
+        onSubmit={handleRegisterSubmit}
+      >
         <div className="register__row">
           <label htmlFor="firstName">
             <input

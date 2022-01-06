@@ -4,6 +4,7 @@ import AppointmentService from "../../../service/AppointmentService";
 import DoctorService from "../../../service/DoctorService";
 import { StoreContext } from "../../../store/storeProvider";
 import "./ReserveAppointment.scss";
+import { useAlert } from "react-alert";
 
 // https://react-select.com/async
 function ReserveAppointment() {
@@ -15,19 +16,18 @@ function ReserveAppointment() {
   const [doctorLables, setDoctorLabels] = useState([]);
   const [dateLabels, setDateLabels] = useState([]);
 
+  const alert = useAlert();
+
   // const options = [
   //   { value: "chocolate", label: "Chocolate", id: 20 },
   //   { value: "strawberry", label: "Strawberry", name: "mdsasad" },
   //   { value: "vanilla", label: "Vanilla" },
   // ];
   const handleDoctorChange = (newValue) => {
-    // const inputValue = newValue.replace();
-    console.log(newValue);
     setDoctor(newValue.value);
 
     DoctorService.getAvaialbilityDatesByDoctor(newValue.value.idDoctor).then(
       (r) => {
-        console.log(r.data);
         const filtered = r.data?.filter((date) => date.free);
 
         console.log(filtered);
@@ -53,12 +53,6 @@ function ReserveAppointment() {
   const handleReserveSubmit = (e) => {
     e.preventDefault();
 
-    // const appointmentDto = {
-    //   appointmentDate: date,
-    //   description,
-    //   user,
-    // };
-
     const reserveAppointmentDto = {
       patientDto: {
         idNumber: user.idNumber,
@@ -73,23 +67,14 @@ function ReserveAppointment() {
 
     AppointmentService.reserveAppointment(reserveAppointmentDto).then((r) => {
       console.log(r);
-
       for (const [key, value] of Object.entries(r.data)) {
         if (value === null) {
-          return alert("Nie udało się zarezerwować wizyty");
+          return window.alert("Nie udało się zarezerwować wizyty");
         } else {
-          return alert("Wizyta zarezerwowana!");
+          return alert.show("Wizyta zarezerwowana!");
         }
       }
     });
-
-    // AppointmentService.createAppointment(appointmentDto).then((r) => {
-    //   if (r.status === 200) {
-    //     alert("Udało się zarezerwować wizytę!");
-    //   } else {
-    //     alert("Coś poszło nie tak, spróbuj ponownie!");
-    //   }
-    // });
   };
 
   useEffect(() => {
@@ -121,10 +106,11 @@ function ReserveAppointment() {
             options={doctorLables}
             className="reserve__select"
             placeholder="Wybierz lekarza..."
+            id="react-select-5-option-1"
           />
           <AsyncSelect
             className="reserve__select"
-            isDisabled={!doctor}
+            // isDisabled={!doctor}
             placeholder="Wybierz termin..."
             onChange={handleDateChange}
             options={dateLabels}
