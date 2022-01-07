@@ -65,10 +65,9 @@ function ReserveAppointment() {
       for (const [key, value] of Object.entries(r.data)) {
         if (value === null) {
           return window.alert("Nie udało się zarezerwować wizyty");
-        } else {
-          return alert.show("Wizyta zarezerwowana!");
         }
       }
+      return alert.show("Wizyta zarezerwowana!");
     });
   };
 

@@ -23,12 +23,14 @@ function Login() {
     e.preventDefault();
 
     UserService.loginUser({ email, password }).then((r) => {
-      if (r.status === 200) {
-        setUser(r.data);
-        history.push("/");
-      } else {
-        alert("Zły login lub hasło!");
+      console.log(r);
+      for (const [key, value] of Object.entries(r.data)) {
+        if (value === null) {
+          return alert("Zły email lub hasło!");
+        }
       }
+      setUser(r.data);
+      history.push("/");
     });
   };
 

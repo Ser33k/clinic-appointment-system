@@ -76,17 +76,17 @@ function DoctorRegisterForm(props) {
             height: 190,
           },
         };
-    debugger;
 
     UserService.register(registrationDto).then((r) => {
+      if (r.data === "") {
+        return window.alert("Nie udało się zarejestrować!");
+      }
       for (const [key, value] of Object.entries(r.data)) {
         if (value === null) {
-          return alert("Nie udało się zarejestrować!");
-        } else {
-          return alert.show("Użytkownik zarejestrowany!");
+          return window.alert("Nie udało się zarejestrować!");
         }
       }
-      return window.alert("Nie udało się zarejestrować!");
+      return alert.show("Użytkownik zarejestrowany!");
     });
   };
 
