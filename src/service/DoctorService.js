@@ -9,10 +9,6 @@ class DoctorService {
     return axios.get(`doctors/${idDoctor}/availability`);
   }
 
-  getScheduleByUser(idUser) {
-    return axios.get(`users/${idUser}/appointments`);
-  }
-
   getDoctorByUser(userIdNumber) {
     return axios.get(`/licenseNumberByUser/${userIdNumber}`);
   }

@@ -31,25 +31,6 @@ function Schedule(props) {
 
         setTableContent(content);
       });
-
-      // DoctorService.getScheduleByUser(props.user.userId).then((r) => {
-      // const content = r.data?.map((appointment) => {
-      //   return (
-      //     <tr key={appointment.description}>
-      //       <td className="tg-0lax">
-      //         {new Date(appointment.appointmentDate.date).toLocaleString()}
-      //       </td>
-      //       <td className="tg-0lax">
-      //         {appointment.patient.user.firstName}{" "}
-      //         {appointment.patient.user.lastName}
-      //       </td>
-      //       <td className="tg-0pky">{appointment.description}</td>
-      //     </tr>
-      //   );
-      // });
-
-      // setTableContent(content);
-      // }, []);
     });
   }, []);
 

@@ -18,11 +18,6 @@ function ReserveAppointment() {
 
   const alert = useAlert();
 
-  // const options = [
-  //   { value: "chocolate", label: "Chocolate", id: 20 },
-  //   { value: "strawberry", label: "Strawberry", name: "mdsasad" },
-  //   { value: "vanilla", label: "Vanilla" },
-  // ];
   const handleDoctorChange = (newValue) => {
     setDoctor(newValue.value);
 
